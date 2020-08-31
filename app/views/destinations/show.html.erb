@@ -1,0 +1,24 @@
+<h1><%= @destination.name %></h1>
+
+<% @destination.posts.each do |p| %>
+    <b><%= p.title %></b><br>
+    <br>
+    <p><%= p.content %></p><br>
+    <br>
+    <%= p.likes %>
+<% end %>
+
+<% if @destination.total_likes > 0 %>
+  <p>Featured Post:</p>
+  <%= link_to @destination.most_likes.title, post_path(@destination.most_likes) %>
+<% end %>
+
+<% @destination.five_most_recent.each do |post| %>
+    <%= link_to post.title, post_path(post) %><br>
+<% end %>
+
+<br />
+
+<p>Average age of bloggers:
+    <%= @destination.average_blogger_age %>
+</p>

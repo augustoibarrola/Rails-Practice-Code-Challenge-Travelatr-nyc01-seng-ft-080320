@@ -1,0 +1,10 @@
+<h1><%= @blogger.name %></h1>
+<br>
+<hr>
+
+<%= @blogger.total_likes %>
+
+<% if @blogger.total_likes > 0 %>
+  <p>Featured Post:</p>
+  <%= link_to @blogger.most_likes.title, post_path(@blogger.most_likes) %>
+<% end %>
